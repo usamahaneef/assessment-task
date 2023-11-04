@@ -22,9 +22,9 @@ Route::name('admin.')->group(
         Route::middleware('guest:admin')->group(function () {
             Route::view('/admin', 'auth.admin.login')->name('login');
             Route::view('/admin/login', 'auth.admin.login')->name('login');
-            Route::post('/admin/login', [AuthController::class, 'login']);
+            Route::post('/admin/login', [\App\Http\Controllers\Admin\AuthController::class, 'login']);
         });
-        Route::middleware('auth')->group(function () {
+        Route::middleware('auth:admin')->group(function () {
             Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
             Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

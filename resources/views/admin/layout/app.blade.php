@@ -51,7 +51,7 @@
                     <img src="{{ asset('assets/img/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block" style="color: black">{{ auth('assets')->user()->name }}</a>
+                    <a href="#" class="d-block" style="color: black">{{ auth('admin')->user()->name }}</a>
                 </div>
             </div>
             <nav class="mt-2">
@@ -96,8 +96,8 @@
                     </div>
                     <div class="info">
                         <span class="d-flex flex-column text-black-50">
-                            <b>{{ auth('assets')->user()->name }}</b>
-                            <span class="mt-n1" style="font-size: small">{{auth('assets')->user()->email}}</span>
+                            <b>{{ auth('admin')->user()->name }}</b>
+                            <span class="mt-n1" style="font-size: small">{{auth('admin')->user()->email}}</span>
                         </span>
                         <form action="{{route('admin.logout')}}" method="post">
                             @csrf
