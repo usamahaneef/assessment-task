@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin| {{$title}}</title>
     
-    <link rel="icon" type="image/png" href="{{asset('admin/img/favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="{{asset('admin/plugins')}}/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="{{asset('admin')}}/css/adminlte.min.css">
-    <link rel="stylesheet" href="{{asset('admin/plugins')}}/select2/css/select2.css">
-    <link rel="stylesheet" href="{{asset('admin/plugins')}}/summernote/summernote-bs4.min.css">
-    <link rel="stylesheet" href="{{asset('admin/plugins')}}/toastr/toastr.min.css">
-    <link rel="stylesheet" href="{{asset('admin')}}/css/custom.css">
+    <link rel="stylesheet" href="{{asset('assets/plugins')}}/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{asset('assets/plugins')}}/select2/css/select2.css">
+    <link rel="stylesheet" href="{{asset('assets/plugins')}}/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="{{asset('assets/plugins')}}/toastr/toastr.min.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/custom.css">
     @stack('css')
     @livewireStyles
 </head>
@@ -28,7 +28,7 @@
             <li class="nav-item">
                 <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
                     <img 
-                    src="{{ asset('admin/img/admin-logo.png') }}"
+                    src="{{ asset('assets/img/admin-logo.png') }}"
                     style="width: 32px;height: 32px;border: 1px solid grey" class="img-circle" alt="User Image">
                 </a>
             </li>
@@ -39,7 +39,7 @@
         <a href="{{route('admin.dashboard')}}" class="brand-link elevation-4  text-center"
            style="background-color: #f0f1ef">
             <span class="">
-                <img style="max-height: 38px" src="{{ asset('admin/img/admin-logo.png') }}" alt="Logo" class="img-fluid" style="opacity: .8">
+                <img style="max-height: 38px" src="{{ asset('assets/img/admin-logo.png') }}" alt="Logo" class="img-fluid" style="opacity: .8">
             </span>
             {{-- <span class="font-weight-light" style="color: black"></span> --}}
                 
@@ -48,10 +48,10 @@
         <div class="sidebar">
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{ asset('admin/img/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
+                    <img src="{{ asset('assets/img/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block" style="color: black">{{ auth('admin')->user()->name }}</a>
+                    <a href="#" class="d-block" style="color: black">{{ auth('assets')->user()->name }}</a>
                 </div>
             </div>
             <nav class="mt-2">
@@ -91,13 +91,13 @@
             <div class="card-body">
                 <div class="align-items-center d-flex p-0 user-panel">
                     <div class="image mt-n3">
-                        <img src="{{ asset('admin/img/avatar.png') }}" class="img-circle elevation-2"
+                        <img src="{{ asset('assets/img/avatar.png') }}" class="img-circle elevation-2"
                              alt="User Image">
                     </div>
                     <div class="info">
                         <span class="d-flex flex-column text-black-50">
-                            <b>{{ auth('admin')->user()->name }}</b>
-                            <span class="mt-n1" style="font-size: small">{{auth('admin')->user()->email}}</span>
+                            <b>{{ auth('assets')->user()->name }}</b>
+                            <span class="mt-n1" style="font-size: small">{{auth('assets')->user()->email}}</span>
                         </span>
                         <form action="{{route('admin.logout')}}" method="post">
                             @csrf
@@ -112,17 +112,17 @@
         </div>
     </aside>
 </div>
-<script src="{{asset('admin/plugins')}}/jquery/jquery.min.js"></script>
-<script src="{{asset('admin/plugins')}}/jquery-ui/jquery-ui.min.js"></script>
+<script src="{{asset('assets/plugins')}}/jquery/jquery.min.js"></script>
+<script src="{{asset('assets/plugins')}}/jquery-ui/jquery-ui.min.js"></script>
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
-<script src="{{asset('admin/plugins')}}/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="{{asset('admin')}}/js/adminlte.min.js"></script>
-<script src="{{asset('admin/plugins')}}/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-<script src="{{asset('admin/plugins')}}/select2/js/select2.full.min.js"></script>
-<script src="{{asset('admin/plugins')}}/summernote/summernote-bs4.min.js"></script>
-<script src="{{asset('admin/plugins')}}/toastr/toastr.min.js"></script>
+<script src="{{asset('assets/plugins')}}/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('assets')}}/js/adminlte.min.js"></script>
+<script src="{{asset('assets/plugins')}}/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="{{asset('assets/plugins')}}/select2/js/select2.full.min.js"></script>
+<script src="{{asset('assets/plugins')}}/summernote/summernote-bs4.min.js"></script>
+<script src="{{asset('assets/plugins')}}/toastr/toastr.min.js"></script>
 @livewireScripts
 @stack('script')
 <script>
