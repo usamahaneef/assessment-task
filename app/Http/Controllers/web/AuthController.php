@@ -4,6 +4,7 @@ namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -61,6 +62,31 @@ class AuthController extends Controller
             "password"      =>     ['required'],
             "password_confirm"      =>  ['required','same:password'],
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        // Validate the incoming request data
+        $this->validator($request->all())->validate();
+
+        // Create a new user
+        $user = $this->create($request->all());
+
+        // Fire the Registered event
+        event(new Registered($user));
+
+        // Log in the newly registered user
+        auth()->login($user);
+
+        // Check for custom response (you may want to implement this method)
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        // Return a response based on the client's request type
+        return $request->wantsJson()
+            ? new JsonResponse([], 201)
+            : redirect($this->redirectPath());
     }
 
 }

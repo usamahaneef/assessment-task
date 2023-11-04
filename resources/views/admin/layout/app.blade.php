@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin| {{$title}}</title>
+    <title>Admin | {{$title}}</title>
     
     <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -67,10 +67,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.tasks')}}" class=" nav-link {{$menu_active == 'task' ? 'active' : ''}} text-white">
-                            <i class="nav-icon fas fa-tasks"></i>
+                        <a href="{{route('admin.users')}}" class=" nav-link {{$menu_active == 'users' ? 'active' : ''}} text-white">
+                            <i class="nav-icon fas fa-users"></i>
                             <p>
-                                Tasks
+                                Users
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.users')}}" class=" nav-link {{$menu_active == 'feedbacks' ? 'active' : ''}} text-white">
+                            <i class="nav-icon fas fa-comment-alt"></i>
+                            <p>
+                                Feedbacks
                             </p>
                         </a>
                     </li>
