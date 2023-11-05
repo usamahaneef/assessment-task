@@ -46,6 +46,6 @@ class FeedbackController extends Controller
     public function delete(Feedback $feedback)
     {
         $feedback->delete();
-        return redirect()->route('admin.users')->with('success', 'feedback deleted successfully');
+        return redirect()->route('admin.feedbacks')->with('success', 'feedback deleted successfully');
     }
 }

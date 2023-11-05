@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-info float-right"> Register</button>
+                        <button class="btn btn-info float-right"> Sign up</button>
                     </div>
                 </div>
             </form>

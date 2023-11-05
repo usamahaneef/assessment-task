@@ -4,7 +4,7 @@
     <div class="col-md-4 col-sm-6 mx-auto">
         <form action="{{route('admin.login')}}" method="POST">
             @csrf
-            <div class="card">
+            <div class="card py-2">
                 <div class="card-header">
                     <h4 class="text-bold text-center">Sign in to start your session</h4>
                 </div>
@@ -30,8 +30,8 @@
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-between">
-                        <a href="{{route('web.register.form')}}" class="btn btn-default">Register</a>
-                        <button class="btn btn-primary float-right">Sign in</button>
+                        <a href="{{route('web.register.form')}}" class="btn btn-default"><i class="fas fa-user"></i> Register</a>
+                        <button class="btn btn-info float-right">Sign in</button>
                     </div>
                 </div>
             </div>

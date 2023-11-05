@@ -4,6 +4,7 @@ namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Feedback;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

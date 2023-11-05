@@ -24,7 +24,10 @@
 
                 @if($feedback->comments)
                 <div class="card-footer">
-                    <h5>Comments</h5>
+                    <div class="d-flex justify-content-between">
+                        <h5>Comments</h5>
+                        <a href="{{route('web.feedback.vote' ,$feedback)}}" class="btn btn-info"><i></i>Vote {{ $feedback->votes_count }}</a>
+                    </div>
                     @foreach ($feedback->comments as $comment)
                         <div class="d-flex bg-white p-2 rounded">
                             <div>
@@ -63,3 +66,48 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const textarea = document.querySelector('.editor');
+
+    // Function to search users (to be implemented)
+    function searchUsers(term) {
+        // This should make a request to the server and return a promise with the search results
+        // For now, we will just simulate it with a timeout
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(['user1', 'user2', 'user3'].filter(u => u.includes(term))), 500);
+        });
+    }
+
+    // Function to insert the chosen username
+    function insertUsername(username) {
+        const cursorPos = textarea.selectionStart;
+        const textBefore = textarea.value.substring(0, cursorPos);
+        const textAfter  = textarea.value.substring(cursorPos);
+        const lastAt = textBefore.lastIndexOf('@');
+        
+        textarea.value = textBefore.substring(0, lastAt) + '@' + username + ' ' + textAfter;
+        textarea.focus();
+    }
+
+    // Event listener for keyup in textarea
+    textarea.addEventListener('keyup', (e) => {
+        const text = e.target.value;
+        const cursorPos = e.target.selectionStart;
+        const textBeforeCursor = text.substring(0, cursorPos);
+        const lastAtPos = textBeforeCursor.lastIndexOf("@");
+
+        if (lastAtPos !== -1 && (textBeforeCursor.length === lastAtPos + 1 || textBeforeCursor[lastAtPos + 1].match(/\s/))) {
+            const searchTerm = textBeforeCursor.substring(lastAtPos + 1);
+            searchUsers(searchTerm).then(users => {
+                // Show user suggestions and allow the user to select one
+                // This will require additional UI and event handling
+            });
+        }
+    });
+});
+
+    </script>
+@endpush

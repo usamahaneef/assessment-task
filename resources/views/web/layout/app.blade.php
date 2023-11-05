@@ -76,10 +76,6 @@
                 }
             }
         });
-
-            $('.editor').emojioneArea({
-                pickerPosition: "top", // Position of the emoji picker
-            });
         toastr.options = {
             "debug": false,
             "positionClass": "toast-top-right",

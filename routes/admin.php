@@ -1,9 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\Auth\ResetPasswordController;
-use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,10 +23,10 @@ Route::name('admin.')->group(
         Route::middleware('auth:admin')->group(function () {
             Route::post('/admin/logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
             Route::get('/admin/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
-            /**
-             * Users Routes
-             */
             Route::prefix('admin')->group(function(){
+                /**
+                 * Users Routes
+                 */
                 Route::get('/users', [\App\Http\Controllers\Admin\UsersController::class, 'index'])->name('users');
                 Route::delete('/user/delete/{user}', [\App\Http\Controllers\Admin\UsersController::class, 'delete'])->name('user.delete');
                 /**

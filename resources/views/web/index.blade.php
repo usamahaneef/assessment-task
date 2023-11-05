@@ -15,8 +15,10 @@
                             <thead class="table-borderless">
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Description</th> 
+                                    <th>Created by</th>
+                                    <th>Category</th>
+                                    <th>Title</th>
+                                    <th>Vote</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -24,8 +26,10 @@
                                 @forelse ($feedbacks as $key => $feedback)
                                     <tr>
                                         <td>{{$key+1}}</td>
+                                        <td><span class="badge badge-info"><i class="fas fa-user"></i> {{ $feedback->user->name}}</span></td>
+                                        <td><span class="badge badge-warning">{{ $feedback->category}}</span></td>
                                         <td>{{$feedback->title}}</td>
-                                        <td><small>{{$feedback->description}}</small></td>
+                                        <td><span class="badge badge-success">{{$feedback->votes_count }}</span></td>
                                         <td>
                                             <a title="View details" href="{{route('web.feedback.detail',$feedback->id)}}" class="btn btn-secondary btn-sm">
                                                 <i class="fas fa-info-circle"></i>

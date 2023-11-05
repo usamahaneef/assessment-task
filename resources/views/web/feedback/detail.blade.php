@@ -24,7 +24,10 @@
 
                 @if($feedback->comments)
                 <div class="card-footer">
-                    <h5>Comments</h5>
+                    <div class="d-flex justify-content-between">
+                        <h5>Comments</h5>
+                        <a href="{{route('web.feedback.vote' ,$feedback)}}" class="btn btn-info"><i></i>Vote {{ $feedback->votes_count }}</a>
+                    </div>
                     @foreach ($feedback->comments as $comment)
                         <div class="d-flex bg-white p-2 rounded">
                             <div>

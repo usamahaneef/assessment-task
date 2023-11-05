@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <h6>Category: {{$feedback->category}}</h6>
+                            <h6><strong>Category:</strong> {{$feedback->category}}</h6>
                             <h6>Comment Status:
                                 @if($feedback->comment_status)
                                     <span class="badge badge-success">Active</span>

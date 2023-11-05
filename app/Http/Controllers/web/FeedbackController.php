@@ -4,6 +4,7 @@ namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Feedback;
+use App\Models\Vote;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
@@ -41,5 +42,27 @@ class FeedbackController extends Controller
             'feedback' => $feedback,
         ]);
     }
+
+    public function vote(Feedback $feedback) 
+    {
+        $userId = auth()->id();    
+        $vote = Vote::where('feedback_id', $feedback->id)
+                    ->where('user_id', $userId)
+                    ->first();
+    
+        if ($vote) {
+            $vote->increment('value');
+            $vote->save();
+            return redirect()->back();
+        } else {
+            $vote = new Vote();
+            $vote->user_id = $userId;
+            $vote->feedback_id = $feedback->id;
+            $vote->value = 1;
+            $vote->save();
+        }
+        return redirect()->back()->with('success', 'Vote saved successfully.');
+    }
+    
     
 }
