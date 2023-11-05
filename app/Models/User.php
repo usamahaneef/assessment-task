@@ -16,6 +16,10 @@ class User extends Authenticatable
 
     protected $hidden = [ 'password'];
     
+    public function guardName()
+    {
+        return 'web';
+    }
 
     protected $fillable = [
         'name',
@@ -23,18 +27,8 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }

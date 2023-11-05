@@ -6,7 +6,7 @@
                 @csrf
                 <div class="card mt-5">
                     <div class="card-header">
-                        <h3 class="card-title">Register</h3>
+                        <h5 class="text-bold text-center">Register to start your session</h5>
                     </div>
                     <div class="card-body">
                         <div class="form-group">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-info"> Register</button>
+                        <button class="btn btn-info float-right"> Register</button>
                     </div>
                 </div>
             </form>

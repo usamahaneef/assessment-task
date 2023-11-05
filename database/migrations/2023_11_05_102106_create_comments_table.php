@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('feedback', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('title')->required();
-            $table->text('description')->required();
-            $table->string('category')->required();
-            $table->boolean('comment_status')->default(false);
+            $table->unsignedBigInteger('feedback_id');
+            $table->text('content');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('feedback');
+        Schema::dropIfExists('comments');
     }
 };

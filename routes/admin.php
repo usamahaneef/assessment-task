@@ -33,21 +33,15 @@ Route::name('admin.')->group(
             Route::prefix('admin')->group(function(){
                 Route::get('/users', [\App\Http\Controllers\Admin\UsersController::class, 'index'])->name('users');
                 Route::delete('/user/delete/{user}', [\App\Http\Controllers\Admin\UsersController::class, 'delete'])->name('user.delete');
+                /**
+                 * Feedbacks Routes
+                */
+                Route::get('/feedbacks' , [\App\Http\Controllers\Admin\FeedbackController::class, 'index'])->name('feedbacks');
+                Route::get('/feedback/detail/{feedback}', [\App\Http\Controllers\Admin\FeedbackController::class, 'detail'])->name('feedback.detail');
+                Route::post('/feedback/activate/{feedback}', [\App\Http\Controllers\Admin\FeedbackController::class, 'activate'])->name('feedback.activate');
+                Route::post('/feedback/inactivate/{feedback}', [\App\Http\Controllers\Admin\FeedbackController::class, 'inactivate'])->name('feedback.inactivate');
+                Route::delete('/feedback/delete/{feedback}', [\App\Http\Controllers\Admin\FeedbackController::class, 'delete'])->name('feedback.delete');
             }); 
-            /**
-             * Tasks Routes
-             */
-            // Route::prefix('admin')->group(function(){
-            //     Route::get('/tasks', [TaskController::class, 'index'])->name('tasks');
-            //     Route::get('/task/create', [TaskController::class, 'create'])->name('task.create');
-            //     Route::post('/task/store', [TaskController::class, 'store'])->name('task.store');
-            //     Route::get('/task/edit/{task}', [TaskController::class, 'edit'])->name('task.edit');
-            //     Route::post('/task/update/{task}', [TaskController::class, 'update'])->name('task.update');
-            //     Route::delete('/task/delete/{task}', [TaskController::class, 'delete'])->name('task.delete');
-
-            //     // filter tasks  
-            //     Route::get('/task/filter', [TaskController::class, 'filter'])->name('task.filter');
-            // });       
         });
     }
 );

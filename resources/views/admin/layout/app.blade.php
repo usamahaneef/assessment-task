@@ -75,7 +75,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.users')}}" class=" nav-link {{$menu_active == 'feedbacks' ? 'active' : ''}} text-white">
+                        <a href="{{route('admin.feedbacks')}}" class=" nav-link {{$menu_active == 'feedbacks' ? 'active' : ''}} text-white">
                             <i class="nav-icon fas fa-comment-alt"></i>
                             <p>
                                 Feedbacks

@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="card elevation-0">
                     <div class="card-header">
-                        <h3 class="card-title"><i class="fas fa-users"></i> Users</h3>
+                        <h3 class="card-title"><i class="fas fa-comment-alt"></i> Feedbacks</h3>
                         <div class="card-tools">
                         </div>
                     </div>
@@ -15,39 +15,42 @@
                                 <thead class="table-borderless">
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th> 
+                                        <th>Title</th>
+                                        <th>Comment Status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($users as $key => $user)
+                                    @forelse ($feedbacks as $key => $feedback)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$user->name}}</td>
+                                            <td>{{$feedback->title}}</td>
                                             <td>
-                                                <a href="mailto:{{ $user->email }}" class="badge badge-info">{{ $user->email }}</a>
+                                                @if($feedback->comment_status)
+                                                    <span class="badge badge-success">Active</span>
+                                                @else
+                                                    <span class="badge badge-danger">Inactive</span>
+                                                @endif
                                             </td>
                                             <td>
-                                                <button type="button" data-target="#modal-{{ $user->id }}"
+                                                <a href="{{route('admin.feedback.detail' ,$feedback)}}" class="btn btn-sm btn-success"> <i class="fas fa-bars"></i></a>
+                                                <button type="button" data-target="#modal-{{ $feedback->id }}"
                                                     data-toggle="modal" class="btn btn-sm btn-danger">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
-                                                <div id="modal-{{ $user->id }}" class="modal fade" role="dialog">
+                                                <div id="modal-{{ $feedback->id }}" class="modal fade" role="dialog">
                                                     <div class="modal-dialog modal-md">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h4 class="modal-title">Delete Record</h4>
+                                                                <h4 class="modal-title">Delete Feedback</h4>
                                                                 <button type="button" class="close"
                                                                     data-dismiss="modal">&times;</button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <p>Do you really wish to delete this record?</p>
-                                                                <p style="color: red">Please note that this will permanently
-                                                                    delete the record.</p>
+                                                                <p>Do you really wish to delete this Feedback?</p>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <form action="{{route('admin.user.delete' , $user)}}"
+                                                                <form action="{{route('admin.feedback.delete' , $feedback)}}"
                                                                     method="post">
                                                                     @csrf
                                                                     @method('delete')
@@ -72,7 +75,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        {{ $users->links() }}
+                        {{ $feedbacks->links() }}
                     </div>
                 </div>
             </div>

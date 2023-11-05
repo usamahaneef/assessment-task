@@ -1,15 +1,50 @@
 @extends('web.layout.app')
 @section('content')
-    <div class="bg-light mb-3">
+    <div class="bg-light py-3">
         <div class="container">
-            <nav class="d-flex justify-content-between">
-              <h4>Home</h4>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="">
-                        <img style="max-height: 38px" src="{{ asset('assets/img/admin-logo.png') }}" alt="Logo" class="img-fluid" style="opacity: .8">
-                    </span>
-                </button>
-              </nav>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-comment-alt"></i> Feedbacks</h3>
+                    <div class="card-tools">
+                        <a href="{{route('web.feedback.create')}}" class="btn btn-info">Submit Feedback</a>
+                    </div>
+                </div>
+                <div class="card-body pt-0">    
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="table-borderless">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Description</th> 
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($feedbacks as $key => $feedback)
+                                    <tr>
+                                        <td>{{$key+1}}</td>
+                                        <td>{{$feedback->title}}</td>
+                                        <td><small>{{$feedback->description}}</small></td>
+                                        <td>
+                                            <a title="View details" href="{{route('web.feedback.detail',$feedback->id)}}" class="btn btn-secondary btn-sm">
+                                                <i class="fas fa-info-circle"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="3" class="text-center">No records found</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    {{ $feedbacks->links() }}
+                </div>
+            </div>
         </div>
     </div>
 @endsection
