@@ -19,7 +19,7 @@ class AuthController extends Controller
     public function showLoginForm()
     {
         return view('auth.web.login',[
-            'title' => 'Login',
+            'title' => 'login',
         ]);
     }
 
