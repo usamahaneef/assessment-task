@@ -24,7 +24,7 @@ class RedirectIfAuthenticated
     private function redirects()
     {
         return [
-            'admin' => redirect()->route('admin.dashboard')
+            'web' => redirect()->route('web.home')
         ];
     }
 }

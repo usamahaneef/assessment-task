@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-     public function index()
+    public function index()
     {
+
         $feedbacks = Feedback::orderBy('id', 'ASC')->paginate(10);
         return view('web.index',[
             'title' => 'Home',

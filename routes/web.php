@@ -12,11 +12,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::name('web.')->group(
     function () {
         Route::middleware('guest:user')->group(function () {
-            Route::view('/user/login', 'auth.admin.login')->name('login');
             Route::view('user/login', 'auth.web.login')->name('login');
             Route::post('/user/login', [\App\Http\Controllers\web\AuthController::class, 'login']);
             Route::get('user/register', [\App\Http\Controllers\web\AuthController::class, 'showRegisterForm'])->name('register.form');

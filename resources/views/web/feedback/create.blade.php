@@ -4,7 +4,7 @@
         <div class="container">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"><i class="fas fa-comment-alt"></i> Feedbacks</h3>
+                    <h3 class="card-title"><i class="fas fa-plus-circle"></i> Create feedback</h3>
                 </div>
                 <form action="" method="POST">
                     @csrf
@@ -54,7 +54,7 @@
                     </div> 
     
                     <div class="card-footer">
-                        <button class="btn btn-info float-right">Save Feedback</button>
+                        <button class="btn btn-sm btn-info float-right"><i class="fas fa-save"></i> Save feedback</button>
                     </div>
                 </form>
             </div>

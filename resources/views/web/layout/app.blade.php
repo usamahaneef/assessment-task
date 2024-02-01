@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emojionearea/dist/emojionearea.min.css">
 
     @stack('css')
-    @livewireStyles
 </head>
 <body class="hold-transition sidebar-mini layout-fixed sidebar-collapse">
 <div class="wrapper">
@@ -28,7 +27,7 @@
                       <img style="max-height: 38px" src="{{ asset('assets/img/avatar-user.png') }}" class="img-circle">
                       <small>{{ auth('user')->user()->name }}</small>
                   </span>
-                  <a href="{{route('web.logout')}}" class="btn btn-default btn-sm">Log Out</a>
+                  <a href="{{route('web.logout')}}" class="btn btn-danger btn-xs"><i class="fas fa-sign-out-alt"></i>Log Out</a>
               </div>
         </nav>
     </div>
@@ -50,7 +49,6 @@
 <script src="{{asset('assets/plugins')}}/summernote/summernote-bs4.min.js"></script>
 <script src="{{asset('assets/plugins')}}/toastr/toastr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/emojionearea/dist/emojionearea.min.js"></script>
-@livewireScripts
 @stack('script')
 <script>
     $(function () {

@@ -24,9 +24,8 @@ class FeedbackController extends Controller
             'description' => 'required',
             'category' => 'required',
         ]);
-
         $feedback = new Feedback();
-        $feedback->user_id = auth('user')->user()->id;
+        $feedback->user_id = loggedInUser()->id;
         $feedback->title = $request->title;
         $feedback->description = $request->description;
         $feedback->category = $request->category;
@@ -42,27 +41,5 @@ class FeedbackController extends Controller
             'feedback' => $feedback,
         ]);
     }
-
-    public function vote(Feedback $feedback) 
-    {
-        $userId = auth()->id();    
-        $vote = Vote::where('feedback_id', $feedback->id)
-                    ->where('user_id', $userId)
-                    ->first();
-    
-        if ($vote) {
-            $vote->increment('value');
-            $vote->save();
-            return redirect()->back();
-        } else {
-            $vote = new Vote();
-            $vote->user_id = $userId;
-            $vote->feedback_id = $feedback->id;
-            $vote->value = 1;
-            $vote->save();
-        }
-        return redirect()->back()->with('success', 'Vote saved successfully.');
-    }
-    
-    
+     
 }

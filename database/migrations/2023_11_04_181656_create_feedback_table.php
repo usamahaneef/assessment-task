@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title')->required();
             $table->text('description')->required();
             $table->string('category')->required();
-            $table->boolean('comment_status')->default(false);
+            $table->boolean('status')->nullable()->default(false);
             $table->timestamps();
         });
     }

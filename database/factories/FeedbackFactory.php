@@ -23,7 +23,7 @@ class FeedbackFactory extends Factory
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
             'category' => $this->faker->randomElement(['Bug Report', 'Feature Request', 'Improvement']),
-            'comment_status' => $this->faker->boolean(70),
+            'status' => $this->faker->boolean(70),
             'created_at' => now(),
             'updated_at' => now(),
         ];

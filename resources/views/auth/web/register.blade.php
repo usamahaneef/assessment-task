@@ -1,14 +1,17 @@
 @extends('auth.web.layout')
 @section('content')
-    <div class="row">
-        <div class="col-md-4 col-sm-6 mx-auto">
+    <div class="row" style="height:100vh;">
+        <div class="col-md-6 align-items-center justify-content-center d-none d-sm-flex"style="background-color:#4660ac;">
+
+        </div>
+        <div class="col-md-6 col-md-6 d-flex align-items-center justify-content-center bg-gray-light">
             <form action="{{route('web.register')}}" method="POST">
                 @csrf
                 <div class="card mt-5">
                     <div class="card-header">
                         <h5 class="text-bold text-center">Register to start your session</h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body pt-0">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" class="form-control"
@@ -50,7 +53,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-info float-right"> Sign up</button>
+                        <button class="btn btn-sm btn-info float-right"> <i class="fas fa-sign-in-alt"></i> Sign up</button>
                     </div>
                 </div>
             </form>

@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('feedback_id');
-            $table->text('content');
+            $table->longText('content');
+            $table->date('date');
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

@@ -25,9 +25,10 @@ class CommentController extends Controller
         ]);
 
         $comment = new Comment();
-        $comment->user_id =   auth('user')->user()->id;
-        $comment->feedback_id =   $feedback->id;
-        $comment->content =   $request->content;
+        $comment->user_id = loggedInUser()->id;
+        $comment->feedback_id = $feedback->id;
+        $comment->content = $request->content;
+        $comment->date = now();
         $comment->save();
         return redirect()->route('web.feedback.detail' ,$feedback)->with('success', 'Comment created');
     }
